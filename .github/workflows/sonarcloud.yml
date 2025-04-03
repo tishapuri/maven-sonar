@@ -37,6 +37,7 @@ jobs:
       - name: SonarCloud Scan
         run: |
           echo "Current working directory: $(pwd)"
+          ls -ltr /Users/runner/work/maven-sonar/maven-sonar/person-service/target/classes
           export JAVA_HOME=$JAVA_HOME
           export PATH=$JAVA_HOME/bin:$PATH
           echo "testing java home: $JAVA_HOME"
