@@ -16,18 +16,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Snyk Security Scan
+      - name: Set up Snyk CLI
+        uses: snyk/actions/setup@master
         env:
           SNYK_TOKEN: 43385d70-738d-4c45-ba09-be2a567cfb0a
-        run: npm install -g snyk && snyk test
+
+      - name: Run Snyk Security Scan
+        run: snyk test
 
       - name: Set up JDK 11 and Maven
         uses: actions/setup-java@v3
