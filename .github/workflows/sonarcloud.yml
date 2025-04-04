@@ -20,6 +20,8 @@ jobs:
         uses: snyk/actions/setup@master
         env:
           SNYK_TOKEN: 43385d70-738d-4c45-ba09-be2a567cfb0a
+      - name: Authenticate Snyk
+        run: snyk auth 43385d70-738d-4c45-ba09-be2a567cfb0a
 
       - name: Run Snyk Security Scan
         run: snyk test
